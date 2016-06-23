@@ -22,7 +22,10 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "marcossegovia/twitter-api-client-bundle": "dev-master",
+        "marcossegovia/php-twitter-api-client": "@dev",
+        "abraham/twitteroauth": "^0.6.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

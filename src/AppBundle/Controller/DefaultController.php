@@ -13,9 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
+        $twitter = $this->get('twitter_api_client');
+        $twitter->get('1.1/followers/ids.json',array('user_id','justinbieber'));
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
         ]);
     }
 }

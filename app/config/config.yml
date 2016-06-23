@@ -72,3 +72,9 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: UserBundle\Entity\User
+
+
+twitter_api_client:
+    twitter:
+        api_key: BshB6GTFcDbfK1ZxxK487J29T
+        api_secret: Eq0AeOHxTevMuBXyJToRgPPeLcLvzkTReNC0WJ6muDcnQdPQi0

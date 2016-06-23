@@ -31,10 +31,9 @@ class UserController extends Controller
             {
                 $connection = $network->getConnection($this->getParameter('consumer_key'),$this->getParameter('consumer_secret'));
                 $user = $connection->get("account/verify_credentials");
-
-                var_dump($user);
             }
         }
+        return $this->render('UserBundle:Network:list.html.twig');
     }
 
     public function addNetworkAction(Request $request)

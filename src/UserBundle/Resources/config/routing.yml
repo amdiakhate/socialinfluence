@@ -3,6 +3,14 @@ user_homepage:
     defaults: { _controller: AppBundle:Default:index }
 
 
+user_listNetworks:
+   path : /listNetworks
+   defaults: {_controller : UserBundle:User:listNetworks}
+
 user_addNetwork:
    path : /addNetwork
    defaults: {_controller : UserBundle:User:addNetwork}
+
+user_addTwitter:
+   path : /addTwitter
+   defaults : {_controller : UserBundle:User:addTwitter}

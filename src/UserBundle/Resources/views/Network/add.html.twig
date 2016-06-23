@@ -1,11 +1,7 @@
-<html>
-<head>
+{% extends "::base.html.twig" %}
 
-</head>
-<body>
-{{ form_start(form) }}
-{{ form_widget(form) }}
+{% block body %}
+    Add a new network
 
-<input type="submit">
-</body>
-</html>
+    <a href="{{ path('user_addTwitter') }}">Add Twitter</a>
+{% endblock %}

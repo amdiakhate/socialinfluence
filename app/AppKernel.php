@@ -19,7 +19,10 @@ class AppKernel extends Kernel
             new \FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
 
-            new \MarcosSegovia\TwitterApiClientBundle\TwitterApiClientBundle()
+            new \MarcosSegovia\TwitterApiClientBundle\TwitterApiClientBundle(),
+            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

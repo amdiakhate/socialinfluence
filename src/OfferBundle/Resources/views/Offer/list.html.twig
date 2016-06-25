@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-xs-12 col-sm-9">
+        <div class="col-xs-12 col-sm-12">
             <div class="blog-wrapper blog-list">
 
                 <div class="blog-post be-large-post">
@@ -26,9 +26,9 @@
                                 <tr>
                                     <td>
                                         {% if offer.imageFile is not null %}
-                                        <img src="{{ vich_uploader_asset(offer,'imageFile') }}" height="40">
-                                            {% endif %}
-                                            </td>
+                                            <img src="{{ vich_uploader_asset(offer,'imageFile') }}" height="40">
+                                        {% endif %}
+                                    </td>
                                     <td>{{ offer.network.type }}</td>
                                     <td>{{ offer.title|capitalize }}</td>
                                     <td>{{ offer.description }}</td>

@@ -31,6 +31,12 @@ class User extends BaseUser
      */
     private $networks;
 
+    /**
+     * @ORM\OneToMany(targetEntity="OfferBundle\Entity\Offer",mappedBy="user", cascade={"remove"})
+     * @var
+     */
+    private $offers;
+
     public function __construct()
     {
         parent::__construct();
@@ -69,5 +75,39 @@ class User extends BaseUser
     public function getNetworks()
     {
         return $this->networks;
+    }
+
+    /**
+     * Add offer
+     *
+     * @param \OfferBundle\Entity\Offer $offer
+     *
+     * @return User
+     */
+    public function addOffer(\OfferBundle\Entity\Offer $offer)
+    {
+        $this->offers[] = $offer;
+
+        return $this;
+    }
+
+    /**
+     * Remove offer
+     *
+     * @param \OfferBundle\Entity\Offer $offer
+     */
+    public function removeOffer(\OfferBundle\Entity\Offer $offer)
+    {
+        $this->offers->removeElement($offer);
+    }
+
+    /**
+     * Get offers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOffers()
+    {
+        return $this->offers;
     }
 }

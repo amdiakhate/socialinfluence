@@ -22,7 +22,7 @@ class AppKernel extends Kernel
             new \MarcosSegovia\TwitterApiClientBundle\TwitterApiClientBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-
+            new OfferBundle\OfferBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

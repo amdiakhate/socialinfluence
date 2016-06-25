@@ -1,0 +1,7 @@
+offer_homepage:
+    path:     /
+    defaults: { _controller: OfferBundle:Offer:index }
+
+offer_addOffer:
+    path:     /addOffer
+    defaults: { _controller: OfferBundle:Offer:addOffer }

@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col s4">
+            Add a new offer
+
+            {{ form_start(form) }}
+            {{ form_row(form.title) }}
+
+            {{ form_label(form.network) }}
+            {{ form_widget(form.network,{'attr':{'class':'browser-default'}}) }}
+            {{ form_row(form.description) }}
+
+            <input type="submit" class="btn">
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}

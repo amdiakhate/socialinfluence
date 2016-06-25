@@ -18,7 +18,10 @@ class UserController extends Controller
         return $this->render('UserBundle:Default:index.html.twig');
     }
 
-    public function  listNetworksAction()
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listNetworksAction()
     {
         $user = $this->getUser();
         $networks = $user->getNetworks();
@@ -26,14 +29,15 @@ class UserController extends Controller
         /**
          * @var $network Network
          */
-        foreach ($networks as $network){
-            if ($network->getType() == 'twitter')
-            {
-                $connection = $network->getConnection($this->getParameter('consumer_key'),$this->getParameter('consumer_secret'));
+        foreach ($networks as $network) {
+            if ($network->getType() == 'twitter') {
+                $connection = $network->getConnection($this->getParameter('consumer_key'), $this->getParameter('consumer_secret'));
                 $user = $connection->get("account/verify_credentials");
             }
         }
-        return $this->render('UserBundle:Network:list.html.twig');
+        return $this->render('UserBundle:Network:list.html.twig', array(
+            'networks' => $networks
+        ));
     }
 
     public function addNetworkAction(Request $request)

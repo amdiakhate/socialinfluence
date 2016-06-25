@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <h3>My Offers</h3>
+        <div class="row">
+            <a class="waves-effect waves-light btn" href="{{ path('offer_addOffer') }}"><i class="material-icons left">add</i>New Offer</a>
+
+        </div>
+        <table>
+            <th>Offer</th>
+            <th>Titlte</th>
+            <th>Description</th>
+            {% for offer in offers %}
+                <tr>
+                    <td>{{ offer.network.type }}</td>
+                    <td>{{ offer.title|capitalize }}</td>
+                    <td>{{ offer.description }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}

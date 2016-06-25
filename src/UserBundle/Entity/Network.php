@@ -64,6 +64,12 @@ class Network
 
 
     /**
+     * @ORM\OneToMany(targetEntity="OfferBundle\Entity\Offer",mappedBy="network", cascade={"remove"})
+     * @var
+     */
+    private $offers;
+
+    /**
      * Get id
      *
      * @return int
@@ -218,9 +224,55 @@ class Network
         return $this->networkUserId;
     }
 
-    public function getConnection($consumerKey,$consumerSecret)
+    public function getConnection($consumerKey, $consumerSecret)
     {
-        $connection = new TwitterOAuth($consumerKey,$consumerSecret,$this->getAccessToken(),$this->getAccessTokenSecret());
+        $connection = new TwitterOAuth($consumerKey, $consumerSecret, $this->getAccessToken(), $this->getAccessTokenSecret());
         return $connection;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->offers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add offer
+     *
+     * @param \OfferBundle\Entity\Offer $offer
+     *
+     * @return Network
+     */
+    public function addOffer(\OfferBundle\Entity\Offer $offer)
+    {
+        $this->offers[] = $offer;
+
+        return $this;
+    }
+
+    /**
+     * Remove offer
+     *
+     * @param \OfferBundle\Entity\Offer $offer
+     */
+    public function removeOffer(\OfferBundle\Entity\Offer $offer)
+    {
+        $this->offers->removeElement($offer);
+    }
+
+    /**
+     * Get offers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getOffers()
+    {
+        return $this->offers;
+    }
+
+    public function __toString()
+    {
+        return $this->getType().' '.$this->getUsername();
     }
 }

@@ -37,4 +37,12 @@ class OfferController extends Controller
             ));
         }
     }
+
+    public function showOfferAction(Offer $offer)
+    {
+
+        return $this->render('OfferBundle:Offer:show.html.twig',array(
+            'offer' =>$offer
+        ));
+    }
 }

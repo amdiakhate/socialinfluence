@@ -32,6 +32,7 @@
                                     <td>{{ offer.network.type }}</td>
                                     <td>{{ offer.title|capitalize }}</td>
                                     <td>{{ offer.description }}</td>
+                                    <td><a href="{{ path('offer_showOffer',{'slug':offer.slug}) }}">See</a></td>
 
                                 </tr>
                             {% endfor %}

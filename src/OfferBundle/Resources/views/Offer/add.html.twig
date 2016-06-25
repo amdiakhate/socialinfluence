@@ -4,21 +4,22 @@
     <div class="row">
     <div class="col-xs-12 col-sm-12">
     <div class="block">
-    <h2 class="content-title">Create a new Offer</h2>
     <div class="block-subtitle">Maecenas et mollis ligula. Donec finibus feugiat laoreet.</div>
     <div class="contect-form">
         {{ form_start(form) }}
         <div class="row">
 
+
             <div class="col-xs-12 col-sm-6">
-                <div class="form-group ">
-                    {{ form_row(form.title) }}
+                <div class="form-group">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title,{'attr':{'class':'form-input'}}) }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 ">
                 <div class="form-group">
                     {{ form_label(form.network) }}
-                    {{ form_widget(form.network,{'attr':{'class':'browser-default'}}) }}
+                    {{ form_widget(form.network,{'attr':{'class':'form-input'}}) }}
 
                 </div>
             </div>
@@ -30,25 +31,27 @@
             {#</div>#}
             <div class="col-xs-12 col-sm-6">
                 <div class="form-group ">
-                    {{ form_row(form.imageFile) }}
+                    {{ form_label(form.imageFile) }}
+                    {{ form_widget(form.imageFile,{'attr':{'class':'form-input'}}) }}
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="form-group ">
-                    {{ form_row(form.price) }}
+                    {{ form_label(form.price) }}
+                    {{ form_widget(form.price,{'attr':{'class':'form-input'}}) }}
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="form-group">
-                    {{ form_row(form.description) }}
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description,{'attr':{'class':'form-input'}}) }}
                 </div>
 
-                <button class="btn color-1 size-2 hover-1 pull-right">submit</button>
+                <button class="btn color-1 size-2 hover-1 pull-right">Create</button>
             </div>
             {{ form_end(form) }}
         </div>
     </div>
-
 
 
 {% endblock %}

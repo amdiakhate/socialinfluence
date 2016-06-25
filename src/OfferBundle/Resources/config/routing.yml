@@ -5,3 +5,7 @@ offer_homepage:
 offer_addOffer:
     path:     /addOffer
     defaults: { _controller: OfferBundle:Offer:addOffer }
+
+offer_showOffer:
+    path:     /showOffer/{slug}
+    defaults: { _controller: OfferBundle:Offer:showOffer }

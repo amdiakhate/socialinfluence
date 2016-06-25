@@ -121,3 +121,15 @@ assetic:
             inputs:
                 - %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.12.0.js
             output: js/jquery.js
+
+
+
+vich_uploader:
+    db_driver : orm
+    mappings:
+        offer_image:
+            uri_prefix:         /images/offers
+            upload_destination: %kernel.root_dir%/../web/images/offers
+            inject_on_load:     true
+            delete_on_update:   true
+            delete_on_remove:   true

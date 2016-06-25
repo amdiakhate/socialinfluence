@@ -18,6 +18,7 @@ use UserBundle\Entity\User;
 class OfferType extends AbstractType
 {
     private $user;
+
     public function __construct(User $user)
     {
         $this->user = $user;
@@ -29,16 +30,17 @@ class OfferType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('network', 'entity',array(
-                'class' =>'UserBundle:Network',
-                'query_builder'=>function (EntityRepository $entityRepository) use($user){
+            ->add('network', 'entity', array(
+                'class' => 'UserBundle:Network',
+                'query_builder' => function (EntityRepository $entityRepository) use ($user) {
                     return $entityRepository->createQueryBuilder('n')
                         ->where('n.user = :user_id')
-                        ->setParameter('user_id',$this->user->getId());
+                        ->setParameter('user_id', $this->user->getId());
                 },
-                'property'=>'username'
+                'property' => 'username'
             ))
             ->add('price')
+            ->add('imageFile','file')
             ;
 
     }

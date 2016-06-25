@@ -36,7 +36,9 @@
     "braincrafted/bootstrap-bundle": "^2.2",
     "twbs/bootstrap": "3.3.*",
     "jquery/jquery": "1.12.*",
-    "oyejorge/less.php": "v1.7.0.10"
+    "oyejorge/less.php": "v1.7.0.10",
+    "vich/uploader-bundle": "^1.1",
+    "ocramius/package-versions": "^1.0"
   },
   "require-dev": {
     "sensio/generator-bundle": "^3.0",

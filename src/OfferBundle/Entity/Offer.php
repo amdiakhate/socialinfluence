@@ -3,12 +3,15 @@
 namespace OfferBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Offer
  *
  * @ORM\Table(name="offer")
  * @ORM\Entity(repositoryClass="OfferBundle\Repository\OfferRepository")
+ * @Vich\Uploadable
  */
 class Offer
 {
@@ -67,6 +70,22 @@ class Offer
      * @var
      */
     private $network;
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="offer_image", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
 
     /**
      * Offer constructor.
@@ -246,6 +265,7 @@ class Offer
         return $this;
     }
 
+    
     /**
      * Get network
      *
@@ -254,5 +274,39 @@ class Offer
     public function getNetwork()
     {
         return $this->network;
+    }
+
+    public function setImageFile(File $image)
+    {
+        $this->imageFile = $image;
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param string $imageName
+     *
+     * @return Product
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
     }
 }

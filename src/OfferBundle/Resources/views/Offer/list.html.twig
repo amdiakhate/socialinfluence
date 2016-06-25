@@ -2,24 +2,46 @@
 
 {% block body %}
     <div class="row">
-        <h3>My Offers</h3>
-        <div class="row">
-            <a class="waves-effect waves-light btn" href="{{ path('offer_addOffer') }}"><i class="material-icons left">add</i>New Offer</a>
+        <div class="col-xs-12 col-sm-9">
+            <div class="blog-wrapper blog-list">
 
+                <div class="blog-post be-large-post">
+                    <div class="info-block clearfix">
+                        <a class="btn btn-primary" href="{{ path('offer_addOffer') }}">New
+                            Offer</a>
+                        <h3 class="be-post-title text-center">
+                            My offers
+                        </h3>
+                    </div>
+                    <div class="be-large-post-align">
+
+                        <table class="table table-striped">
+                            <thead>
+                            <th></th>
+                            <th>Type</th>
+                            <th>Titlte</th>
+                            <th>Description</th>
+                            </thead>
+                            {% for offer in offers %}
+                                <tr>
+                                    <td>
+                                        {% if offer.imageFile is not null %}
+                                        <img src="{{ vich_uploader_asset(offer,'imageFile') }}" height="40">
+                                            {% endif %}
+                                            </td>
+                                    <td>{{ offer.network.type }}</td>
+                                    <td>{{ offer.title|capitalize }}</td>
+                                    <td>{{ offer.description }}</td>
+
+                                </tr>
+                            {% endfor %}
+                        </table>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <table>
-            <th>Offer</th>
-            <th>Titlte</th>
-            <th>Description</th>
-            {% for offer in offers %}
-                <tr>
-                    <td>{{ offer.network.type }}</td>
-                    <td>{{ offer.title|capitalize }}</td>
-                    <td>{{ offer.description }}</td>
-
-                </tr>
-            {% endfor %}
-        </table>
     </div>
 
 {% endblock %}

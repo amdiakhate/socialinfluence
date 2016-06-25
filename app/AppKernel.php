@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new \MarcosSegovia\TwitterApiClientBundle\TwitterApiClientBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new \Vich\UploaderBundle\VichUploaderBundle(),
             new OfferBundle\OfferBundle(),
         ];
 

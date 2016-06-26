@@ -1310,7 +1310,7 @@ a.social-btn:hover { opacity: 0.6; color: #fff; }
 
 .be-large-post .be-post-title:hover { text-decoration: none; cursor: pointer; }
 
-.be-text-tags { color: #b4b7c1; display: block; font-size: 12px; padding: 0px; margin-bottom: 35px; }
+.be-text-tags { color: darkgrey; display: block; font-size: 12px; padding: 0px; margin-bottom: 35px; }
 
 .be-large-post .be-post-title { font-size: 24px; margin-bottom: 20px; padding-bottom: 20px; margin-left: 0px; }
 

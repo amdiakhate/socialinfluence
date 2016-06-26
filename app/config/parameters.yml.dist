@@ -17,3 +17,5 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    consumer_key: BshB6GTFcDbfK1ZxxK487J29T
+    consumer_secret: Eq0AeOHxTevMuBXyJToRgPPeLcLvzkTReNC0WJ6muDcnQdPQi0

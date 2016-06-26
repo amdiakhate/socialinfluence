@@ -18,8 +18,7 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('language')
-            ->add('type');
+            ->add('language');
     }
 
     public function configureOptions(OptionsResolver $resolver)

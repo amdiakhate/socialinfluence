@@ -19,13 +19,22 @@ class UserController extends Controller
         return $this->render('UserBundle:Default:index.html.twig');
     }
 
+    public function showProfileAction()
+    {
+        $user = $this->getUser();
+
+        return $this->render('UserBundle:Profile:show.html.twig', array(
+            'user' => $user
+        ));
+    }
+
     public function editProfileAction()
     {
         $user = $this->getUser();
-        $form = $this->createForm(new UserType(),$user);
+        $form = $this->createForm(new UserType(), $user);
 
-        return $this->render('UserBundle:Profile:edit.html.twig',array(
-            'form'=>$form->createView()
+        return $this->render('UserBundle:Profile:edit.html.twig', array(
+            'form' => $form->createView()
         ));
     }
 

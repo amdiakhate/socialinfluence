@@ -1,0 +1,82 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-xs-12 col-sm-5">
+            <div class="blog-wrapper blog-list">
+
+                <div class="blog-post be-large-post">
+                    <div class="info-block clearfix">
+                        <div class="be-large-post-align">
+                            {#<span><i class="fa fa-thumbs-o-up"></i> 253</span>#}
+                            {#<span><i class="fa fa-eye"></i> 753</span>#}
+                            {#<span><i class="fa fa-comment-o"></i> 50</span>#}
+                        </div>
+                    </div>
+                    <div class="be-large-post-align">
+                        <h3 class="be-post-title">
+                            {{ user.username }}
+                        </h3>
+
+								<span class="be-text-tags clearfix">
+									<div class="post-date">
+                                        <h4 class="be-bottom-title">Description</h4>
+                                        </br>
+                                        {{ user.description }}
+                                    </div>
+								</span>
+                        <hr>
+                        <span class="be-text-tags clearfix">
+                        <div>
+                            <h4 class="be-bottom-title">Languages</h4>
+
+                        </div>
+                        </span>
+                        <hr>
+                        <span class="be-text-tags clearfix">
+                        <div>
+                            <h4 class="be-bottom-title">Networks</h4>
+                            <div class="post-text">
+                                {% for network in user.networks %}
+                                    {{ network.username }}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                        </span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="post-preview  be-large-post-slider">
+                        {#<img class="img-responsive img-full" src="{{ vich_uploader_asset(offer,'imageFile') }}" alt="">#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-7">
+                <h3 class="letf-menu-article">{{ user.username|capitalize }} 's Offers</h3>
+                {% for offer in user.offers %}
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="be-post style-2">
+                            {#<div class="be-post-date"><i class="fa fa-clock-o"></i> April 23, 2015</div>#}
+                            <a href="blog-detail-2.html" class="be-post-title">{{ offer.title }}</a>
+                            <a href="blog-detail-2.html" class="be-img-block">
+                                <img src="{{ vich_uploader_asset(offer,'imageFile') }}" alt="omg">
+                            </a>
+									<span>
+										{{ offer.description|slice(0,20) }}
+									</span>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-success text-center">Details</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

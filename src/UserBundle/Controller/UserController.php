@@ -28,13 +28,25 @@ class UserController extends Controller
         ));
     }
 
-    public function editProfileAction()
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editProfileAction(Request $request)
     {
         $user = $this->getUser();
         $form = $this->createForm(new UserType(), $user);
 
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirect($this->generateUrl('user_showProfile'));
+        }
         return $this->render('UserBundle:Profile:edit.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'user' => $user
         ));
     }
 

@@ -8,19 +8,15 @@
                 <div class="blog-post be-large-post">
                     <div class="info-block clearfix">
                         <div class="be-large-post-align">
-                            {#<span><i class="fa fa-thumbs-o-up"></i> 253</span>#}
-                            {#<span><i class="fa fa-eye"></i> 753</span>#}
-                            {#<span><i class="fa fa-comment-o"></i> 50</span>#}
                         </div>
                     </div>
                     <div class="be-large-post-align">
                         <h3 class="be-post-title">
                             {{ user.username }}
                         </h3>
-
+                        <img src="{{ vich_uploader_asset(user,'imageFile') }}">
 								<span class="be-text-tags clearfix">
 									<div class="post-date">
-                                        <h4 class="be-bottom-title">Description</h4>
                                         </br>
                                         {{ user.description }}
                                     </div>
@@ -29,6 +25,11 @@
                         <span class="be-text-tags clearfix">
                         <div>
                             <h4 class="be-bottom-title">Languages</h4>
+                            <ul>
+                                {% for language in user.language %}
+                                    <li>{{ language }}</li>
+                                {% endfor %}
+                            </ul>
 
                         </div>
                         </span>
@@ -47,13 +48,10 @@
                         <div class="clear"></div>
                     </div>
                     <div class="post-preview  be-large-post-slider">
-                        {#<img class="img-responsive img-full" src="{{ vich_uploader_asset(offer,'imageFile') }}" alt="">#}
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="row">
             <div class="col-7">
                 <h3 class="letf-menu-article">{{ user.username|capitalize }} 's Offers</h3>
@@ -69,12 +67,11 @@
 										{{ offer.description|slice(0,20) }}
 									</span>
                             <div class="text-center">
-                                <button type="button" class="btn btn-success text-center">Details</button>
-
+                                <a href="{{ path('offer_showOffer',{'slug':offer.slug}) }}" class="btn btn-success">Details</a>
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                {% endfor %}
             </div>
 
         </div>

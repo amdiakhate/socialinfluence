@@ -8,49 +8,47 @@
     <div class="contect-form">
         {{ form_start(form) }}
         <div class="row">
-
-
             <div class="col-xs-12 col-sm-6">
-                <div class="form-group">
-                    {{ form_label(form.user) }}
-                    {{ form_widget(form.title,{'attr':{'class':'form-input'}}) }}
+                <div class="col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        {{ form_label(form.username) }}
+                        {{ form_widget(form.username,{'attr':{'class':'form-input'}}) }}
+                    </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 ">
-                <div class="form-group">
-                    {{ form_label(form.network) }}
-                    {{ form_widget(form.network,{'attr':{'class':'form-input'}}) }}
+                <div class="col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        {{ form_label(form.description) }}
+                        {{ form_widget(form.description,{'attr':{'class':'form-input'}}) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        {{ form_label(form.language) }}
+                        {{ form_widget(form.language,{'attr':{'class':'form-input'}}) }}
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        <label>Networks</label>
+                        <ul>
+                            {% for network in user.networks %}
+                                <li>{{ network.username }}</li>
+                            {% endfor %}
+                        </ul>
 
-                </div>
-            </div>
-            {#<div class="col-xs-12 col-sm-6 fl_icon">#}
-            {#<div class="form-group ">#}
-            {#<div class="icon"><img src="img/mail-g-ico.png" alt=""></div>#}
-            {#{{ form_row(form.description) }}#}
-            {#</div>#}
-            {#</div>#}
-            <div class="col-xs-12 col-sm-6">
-                <div class="form-group ">
-                    {{ form_label(form.imageFile) }}
-                    {{ form_widget(form.imageFile,{'attr':{'class':'form-input'}}) }}
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <div class="form-group ">
-                    {{ form_label(form.price) }}
-                    {{ form_widget(form.price,{'attr':{'class':'form-input'}}) }}
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="form-group">
-                    {{ form_label(form.description) }}
-                    {{ form_widget(form.description,{'attr':{'class':'form-input'}}) }}
-                </div>
+                <img src="{{ vich_uploader_asset(user,'imageFile') }}" width="200px">
+                {{ form_widget(form.imageFile,{'attr':{'class':'form-input'}}) }}
 
-                <button class="btn color-1 size-2 hover-1 pull-right">Create</button>
             </div>
-            {{ form_end(form) }}
+
         </div>
+        <button class="btn color-1 size-2 hover-1 pull-right">Update</button>
+        {{ form_end(form) }}
+
     </div>
 
 

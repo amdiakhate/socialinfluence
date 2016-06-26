@@ -11,6 +11,7 @@ namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 
@@ -56,7 +57,7 @@ class User extends BaseUser
      * @var string
      */
     private $imageName;
-    
+
     /**
      * @ORM\OneToMany(targetEntity="UserBundle\Entity\Network",mappedBy="user",cascade={"remove"})
      * @var
@@ -68,6 +69,13 @@ class User extends BaseUser
      * @var
      */
     private $offers;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -225,10 +233,14 @@ class User extends BaseUser
         return $this->language;
     }
 
-    public function setImageFile(File $image)
+    public function setImageFile($image)
     {
-        $this->imageFile = $image;
-        return $this;
+        if (isset($image)) {
+            $this->imageFile = $image;
+            $this->updatedAt = new \DateTime('now');
+            return $this;
+        }
+
     }
 
     /**

@@ -62,4 +62,9 @@ class Language
     {
         return $this->language;
     }
+
+    public function __toString()
+    {
+        return $this->getLanguage();
+    }
 }

@@ -18,6 +18,10 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
+            ->add('description')
+            ->add('imageFile','file',array(
+                'required'=>false
+            ))
             ->add('language');
     }
 

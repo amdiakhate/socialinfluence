@@ -37,7 +37,52 @@
             </div>
         </div>
 
-        <div style="margin-top:10px; clear: both;"> </div>
+
+        <div class="col-xs-12 col-sm-4">
+            <div class="blog-wrapper blog-list">
+
+                <div class="blog-post be-large-post" style="padding-bottom: 0px">
+                    <div class="info-block clearfix">
+                        <div class="be-large-post-align">
+                            {#<span><i class="fa fa-thumbs-o-up"></i> 253</span>#}
+                            {#<span><i class="fa fa-eye"></i> 753</span>#}
+                            {#<span><i class="fa fa-comment-o"></i> 50</span>#}
+                        </div>
+                    </div>
+                    <div class="be-large-post-align">
+                        <div class="blog-content be-large-post-align">
+                            <button class="btn btn-lg btn-success">Order ( {{ offer.price }})</button>
+                            <label>Quantity : </label><input class="form-input" type="number" name="quantity">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:10px;" class="clear"></div>
+            <div class="blog-wrapper blog-list">
+
+                <div class="blog-post be-large-post" style="padding-bottom: 0px">
+                    <div class="info-block clearfix">
+                        <div class="be-large-post-align">
+                            {#<span><i class="fa fa-thumbs-o-up"></i> 253</span>#}
+                            {#<span><i class="fa fa-eye"></i> 753</span>#}
+                            {#<span><i class="fa fa-comment-o"></i> 50</span>#}
+                        </div>
+                    </div>
+                    <div class="be-large-post-align">
+                        <h3>About {{ offer.user.username }}</h3>
+                        <div class="blog-content be-large-post-align">
+                            <button class="btn btn-lg btn-success">Order ( {{ offer.price }})</button>
+                            <label>Quantity : </label><input class="form-input" type="number" name="quantity">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div style="margin-top:10px;" class="clear"></div>
         <div class="col-xs-12 col-sm-8">
             <div class="blog-wrapper blog-list">
 
@@ -63,5 +108,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 {% endblock %}

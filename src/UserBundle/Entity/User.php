@@ -11,10 +11,13 @@ namespace UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @Vich\Uploadable
  */
 class User extends BaseUser
 {
@@ -25,6 +28,35 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * @ORM\Column(name="description",type="text")
+     * @var
+     */
+    private $description;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="UserBundle\Entity\Language",cascade={"persist"})
+     * @var
+     */
+    private $language;
+
+
+    /**
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     *
+     * @Vich\UploadableField(mapping="user_image", fileNameProperty="imageName")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+    
     /**
      * @ORM\OneToMany(targetEntity="UserBundle\Entity\Network",mappedBy="user",cascade={"remove"})
      * @var
@@ -109,5 +141,101 @@ class User extends BaseUser
     public function getOffers()
     {
         return $this->offers;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return User
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set imageName
+     *
+     * @param string $imageName
+     *
+     * @return User
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get imageName
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * Add language
+     *
+     * @param \UserBundle\Entity\Language $language
+     *
+     * @return User
+     */
+    public function addLanguage(\UserBundle\Entity\Language $language)
+    {
+        $this->language[] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Remove language
+     *
+     * @param \UserBundle\Entity\Language $language
+     */
+    public function removeLanguage(\UserBundle\Entity\Language $language)
+    {
+        $this->language->removeElement($language);
+    }
+
+    /**
+     * Get language
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+
+    public function setImageFile(File $image)
+    {
+        $this->imageFile = $image;
+        return $this;
+    }
+
+    /**
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 }

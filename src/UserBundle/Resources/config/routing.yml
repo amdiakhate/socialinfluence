@@ -2,6 +2,9 @@ user_homepage:
     path:     /
     defaults: { _controller: AppBundle:Default:index }
 
+user_editProfile:
+    path:     /editprofile
+    defaults: { _controller: UserBundle:User:editProfile }
 
 user_listNetworks:
    path : /listNetworks

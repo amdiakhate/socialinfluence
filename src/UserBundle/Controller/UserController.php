@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\Network;
 use UserBundle\Form\NetworkType;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use UserBundle\Form\UserType;
 use UserBundle\UserBundle;
 
 define('OAUTH_CALLBACK', getenv('OAUTH_CALLBACK'));
@@ -16,6 +17,16 @@ class UserController extends Controller
     public function indexAction()
     {
         return $this->render('UserBundle:Default:index.html.twig');
+    }
+
+    public function editProfileAction()
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(new UserType(),$user);
+
+        return $this->render('UserBundle:Profile:edit.html.twig',array(
+            'form'=>$form->createView()
+        ));
     }
 
     /**
@@ -40,11 +51,20 @@ class UserController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function addNetworkAction(Request $request)
     {
         return $this->render('UserBundle:Network:add.html.twig');
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws \Abraham\TwitterOAuth\TwitterOAuthException
+     */
     public function addTwitterAction(Request $request)
     {
         if ($request->query->get('oauth_token') && $request->query->get('oauth_verifier')) {
@@ -54,11 +74,7 @@ class UserController extends Controller
                 $_SESSION['oauth_token'],
                 $_SESSION['oauth_token_secret']
             );
-//            var_dump($connection);
-//            session_destroy();
             $oauthVerifier = $request->query->get('oauth_verifier');
-//            var_dump($oauthVerifier);
-//            $connection->
             $access_token = $connection->oauth("oauth/access_token", array(
                     "oauth_verifier" => $oauthVerifier
                 )
@@ -86,25 +102,5 @@ class UserController extends Controller
             return $this->redirect($twitterUrl);
         }
 
-
-//        echo $url;
-//        return $this->redirect($url);
-
-//        $network = new Network();
-//        $form = $this->createForm(NetworkType::class,$network);
-//
-//        $form->handleRequest($request);
-//        if($form->isSubmitted() && $form->isValid())
-//        {
-//            $em = $this->getDoctrine()->getManager();
-//            $network->setUser($this->getUser());
-//            $em->persist($network);
-//            $em->flush();
-//
-//        }
-//
-//        return $this->render('UserBundle:Network:add.html.twig',array(
-//            'form'=>$form->createView()
-//        ));
     }
 }

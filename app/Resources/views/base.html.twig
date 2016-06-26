@@ -18,131 +18,110 @@
 
 <!-- THE HEADER -->
 <header>
-    <div class="container-fluid custom-container">
-        <div class="row no_row row-header">
-            <div class="brand-be">
-                <a href="index.html"><img src="img/logo.png" alt="logo" class="be_logo">
-                </a>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Social Influence</a>
             </div>
-            <div class="header-menu-block">
-                <button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
-                <ul class="header-menu" id="one">
-                    <li class="active-header"><a href="blog-detail-2.html">Find Projects</a><i
-                                class="fa fa-angle-down"></i>
-                        <ul>
-                            <li>
-                                <a href="activity.html">ACTIVITY</a>
-                                <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i>
-                                <ul>
-                                    <li><a href="page1.html">PAGE 1</a></li>
-                                    <li><a href="page2.html">PAGE 2</a></li>
-                                    <li><a href="page3.html">PAGE 3</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="search.html">SEARCH</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="activity.html">Jobs</a></li>
-                    <li><a href="search.html">Find Candidates</a><i class="fa fa-angle-down"></i>
-                        <ul>
-                            <li><a href="author-edit.html">AUTHOR EDIT</a></li>
-                            <li><a href="author-login.html">AUTHOR LOGIN</a></li>
-                            <li><a href="messages.html">MESSAGES</a></li>
-                            <li><a href="messages-2.html">MESSAGES 2</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="blog-detail-2.html">Community</a><i class="fa fa-angle-down"></i>
-                        <ul>
-                            <li><a href="blog.html">BLOG</a></li>
-                            <li><a href="blog-2.html">BLOG 2</a></li>
-                            <li><a href="blog-3.html">BLOG 3</a></li>
-                            <li><a href="statictics.html">STATISTICS</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="about-us.html">ABOUT US</a></li>
-                            <li><a href="contact-us.html">CONTACT US</a></li>
-                            <li><a href="shortcodes.html">SHORTCODES</a></li>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Menu <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('user_editProfile') }}">My Profile</a></li>
+                            <li><a href="{{ path('user_listNetworks') }}">My Networks</a></li>
+                            <li><a href="{{ path('offer_homepage') }}">My Offers</a></li>
+                            {#<li><a href="#">Something else here</a></li>#}
+                            {#<li role="separator" class="divider"></li>#}
+                            {#<li><a href="#">Separated link</a></li>#}
                         </ul>
                     </li>
                 </ul>
-            </div>
-            <div class="login-header-block">
-                <div class="login_block">
-                    <a class="btn-login btn color-1 size-2 hover-2" href="blog-detail-2.html"><i class="fa fa-user"></i>
-                        Log in</a>
-                </div>
-            </div>
-        </div>
-    </div>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 </header>
 
 <!-- MAIN CONTENT -->
 <div id="content-block">
-    <div class="head-bg">
-        <div class="head-bg-img"></div>
-        <div class="head-bg-content">
-            <h1>Your Best Social Network Template</h1>
-            <p>Donec in rhoncus tortor. Sed tristique auctor ligula vel viverra</p>
-            <a class="btn color-1 size-1 hover-1" href="blog-detail-2.html"><i class="fa fa-facebook"></i>sign up via
-                facebook</a>
-            <a class="be-register btn color-3 size-1 hover-6"><i class="fa fa-lock"></i>sign up now</a>
-        </div>
-    </div>
-    <div class="container-fluid custom-container">
-        <div class="row">
-            <div class="col-md-2 left-feild">
-                <form action="./" class="input-search">
-                    <input type="text" required="" placeholder="Enter keyword">
-                    <i class="fa fa-search"></i>
-                    <input type="submit" value="">
-                </form>
-            </div>
-            <div class="col-md-10 ">
-                <div class="for-be-dropdowns">
-                    <div class="be-drop-down">
-                        <i class="icon-projects"></i>
-                        <span class="be-dropdown-content"> Projects	</span>
-                        <ul class="drop-down-list">
-                            <li><a>Item - 1</a></li>
-                            <li><a>Item - 2</a></li>
-                            <li><a>Item - 3</a></li>
-                        </ul>
-                    </div>
-                    <div class="be-drop-down">
-                        <i class="icon-creative"></i>
-							<span class="be-dropdown-content">All Creative Filds
-							</span>
-                        <ul class="drop-down-list">
-                            <li><a>Item - 1</a></li>
-                            <li><a>Item - 2</a></li>
-                            <li><a>Item - 3</a></li>
-                        </ul>
-                    </div>
-                    <div class="be-drop-down">
-                        <i class="icon-features"></i>
-							<span class="be-dropdown-content">Features
-							</span>
-                        <ul class="drop-down-list">
-                            <li><a>Featured</a></li>
-                            <li><a>Most Appreciated</a></li>
-                            <li><a>Most Viewed</a></li>
-                            <li><a>Most Discussed</a></li>
-                            <li><a>Most Recent</a></li>
-                        </ul>
-                    </div>
-                    <div class="be-drop-down">
-                        <i class="icon-worldwide"></i>
-							<span class="be-dropdown-content">Worldwide
-							</span>
-                        <ul class="drop-down-list">
-                            <li><a>Item - 1</a></li>
-                            <li><a>Item - 2</a></li>
-                            <li><a>Item - 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {#<div class="head-bg">#}
+        {#<div class="head-bg-img"></div>#}
+        {#<div class="head-bg-content">#}
+            {#<h1>Your Best Social Network Template</h1>#}
+            {#<p>Donec in rhoncus tortor. Sed tristique auctor ligula vel viverra</p>#}
+            {#<a class="btn color-1 size-1 hover-1" href="blog-detail-2.html"><i class="fa fa-facebook"></i>sign up via#}
+                {#facebook</a>#}
+            {#<a class="be-register btn color-3 size-1 hover-6"><i class="fa fa-lock"></i>sign up now</a>#}
+        {#</div>#}
+    {#</div>#}
+    {#<div class="container-fluid custom-container">#}
+        {#<div class="row">#}
+            {#<div class="col-md-2 left-feild">#}
+                {#<form action="./" class="input-search">#}
+                    {#<input type="text" required="" placeholder="Enter keyword">#}
+                    {#<i class="fa fa-search"></i>#}
+                    {#<input type="submit" value="">#}
+                {#</form>#}
+            {#</div>#}
+            {#<div class="col-md-10 ">#}
+                {#<div class="for-be-dropdowns">#}
+                    {#<div class="be-drop-down">#}
+                        {#<i class="icon-projects"></i>#}
+                        {#<span class="be-dropdown-content"> Projects	</span>#}
+                        {#<ul class="drop-down-list">#}
+                            {#<li><a>Item - 1</a></li>#}
+                            {#<li><a>Item - 2</a></li>#}
+                            {#<li><a>Item - 3</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                    {#<div class="be-drop-down">#}
+                        {#<i class="icon-creative"></i>#}
+							{#<span class="be-dropdown-content">All Creative Filds#}
+							{#</span>#}
+                        {#<ul class="drop-down-list">#}
+                            {#<li><a>Item - 1</a></li>#}
+                            {#<li><a>Item - 2</a></li>#}
+                            {#<li><a>Item - 3</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                    {#<div class="be-drop-down">#}
+                        {#<i class="icon-features"></i>#}
+							{#<span class="be-dropdown-content">Features#}
+							{#</span>#}
+                        {#<ul class="drop-down-list">#}
+                            {#<li><a>Featured</a></li>#}
+                            {#<li><a>Most Appreciated</a></li>#}
+                            {#<li><a>Most Viewed</a></li>#}
+                            {#<li><a>Most Discussed</a></li>#}
+                            {#<li><a>Most Recent</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                    {#<div class="be-drop-down">#}
+                        {#<i class="icon-worldwide"></i>#}
+							{#<span class="be-dropdown-content">Worldwide#}
+							{#</span>#}
+                        {#<ul class="drop-down-list">#}
+                            {#<li><a>Item - 1</a></li>#}
+                            {#<li><a>Item - 2</a></li>#}
+                            {#<li><a>Item - 3</a></li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
     <div class="container">
         <div class="section">
             {% block body %}
